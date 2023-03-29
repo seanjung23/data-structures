@@ -6,7 +6,6 @@ var Queue = function() {
   var storage = {};
 
   // Implement the methods below
-
   someInstance.enqueue = function(value) {
     key++;
     storage[key] = value;
@@ -18,13 +17,16 @@ var Queue = function() {
     } else {
       var top = storage[1];
       delete storage[1];
+
       if (key > 1) {
         for (var i = 2; i <= key; i++) {
-          var currentStorageValue = storage[key];
+          var currentStorageValue = storage[i];
           var previousKey = i - 1;
+          delete storage[i];
           storage[previousKey] = currentStorageValue;
         }
       }
+
       key--;
       return top;
     }
@@ -36,5 +38,3 @@ var Queue = function() {
 
   return someInstance;
 };
-
-//

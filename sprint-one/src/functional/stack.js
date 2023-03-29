@@ -18,6 +18,7 @@ var Stack = function() {
       var top = storage[key];
       delete storage[key];
       key--;
+
       return top;
     }
   };
