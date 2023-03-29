@@ -21,7 +21,7 @@ queueMethods.dequeue = function() {
   if (this.key === 0) {
     return;
   } else {
-    var top = this.storage[1];
+    var firstOut = this.storage[1];
     delete this.storage[1];
 
     if (this.key > 1) {
@@ -34,7 +34,7 @@ queueMethods.dequeue = function() {
     }
 
     this.key--;
-    return top;
+    return firstOut;
   }
 };
 

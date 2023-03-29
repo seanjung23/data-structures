@@ -15,7 +15,7 @@ var Queue = function() {
     if (key === 0) {
       return;
     } else {
-      var top = storage[1];
+      var firstOut = storage[1];
       delete storage[1];
 
       if (key > 1) {
@@ -28,7 +28,7 @@ var Queue = function() {
       }
 
       key--;
-      return top;
+      return firstOut;
     }
   };
 
