@@ -3,6 +3,7 @@ var LinkedList = function() {
   var list = {};
   list.head = null;
   list.tail = null;
+  list.size = 0;
 
   // Time Complexity: Constant
   list.addToTail = function(value) {
@@ -11,22 +12,44 @@ var LinkedList = function() {
     if (list.head === null) {
       list.head = node;
       list.tail = node;
+      list.size++;
     } else {
       list.tail.next = node;
       list.tail = node;
+      list.size++;
     }
   };
 
   // Time Complexity: Constant
   list.removeHead = function() {
-    var head = list.head;
-
-    if (head === null) {
-      return;
+    if (list.head === null) {
+      return list.head;
     }
-    list.head = head.next;
+    var removeNode = list.head;
+    list.head = list.head.next;
+    list.size--;
 
-    return head.value;
+    return removeNode.value;
+  };
+
+  // Time Complexity: Linear
+  list.deleteNode = function(target) {
+    var prevNode = list.head;
+    if (prevNode.value === target) {
+      return list.removeHead();
+    }
+    var node = list.head.next;
+
+    while (node !== null) {
+      if (node.value === target) {
+        prevNode.next = node.next;
+        list.size--;
+
+        return;
+      }
+      prevNode = node;
+      node = node.next;
+    }
   };
 
   // Time Complexity: Linear

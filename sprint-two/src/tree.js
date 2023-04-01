@@ -26,9 +26,11 @@ treeMethods.contains = function(target) {
 
   var isTarget = false;
   var findTarget = function(subTree) {
+
     subTree.forEach(function(item) {
       if (item.value === target) {
         isTarget = true;
+
         return;
       }
       if (item.children) {
@@ -36,6 +38,7 @@ treeMethods.contains = function(target) {
       }
     });
   };
+
   findTarget(this.children);
 
   return isTarget;
