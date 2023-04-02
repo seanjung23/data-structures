@@ -11,24 +11,29 @@
 //   limitedArray.set(3, 'hi');
 //   limitedArray.get(3); // returns 'hi'
 
+// Time Complexity: Constant
 var LimitedArray = function(limit) {
   var storage = [];
 
+  // Time Complexity: Constant
   var limitedArray = {};
   limitedArray.get = function(index) {
     checkLimit(index);
     return storage[index];
   };
+  // Time Complexity: Constant
   limitedArray.set = function(index, value) {
     checkLimit(index);
     storage[index] = value;
   };
+  // Time Complexity: Linear
   limitedArray.each = function(callback) {
     for (var i = 0; i < storage.length; i++) {
       callback(storage[i], i, storage);
     }
   };
 
+  // Time Complexity: Constant
   var checkLimit = function(index) {
     if (typeof index !== 'number') {
       throw new Error('setter requires a numeric index for its first argument');
@@ -41,6 +46,7 @@ var LimitedArray = function(limit) {
   return limitedArray;
 };
 
+// Time Complexity: Constant
 // This is a "hashing function". You don't need to worry about it, just use it
 // to turn any string into an integer that is well-distributed between the
 // numbers 0 and `max`

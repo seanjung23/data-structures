@@ -17,6 +17,7 @@ Stack.prototype.pop = function() {
     var top = this.storage[this.key];
     delete this.storage[this.key];
     this.key--;
+
     return top;
   }
 };
